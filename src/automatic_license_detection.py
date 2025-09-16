@@ -1,27 +1,13 @@
 Original file is located at
     https://colab.research.google.com/drive/1JIlVeyx5AAW7E7ua48r5ZUBJHBbKY6Uo
 """
-
 from google.colab import files
-
-
 uploaded = files.upload()
 
-# Remove any old versions
-!pip uninstall -y torch torchvision torchaudio ultralytics wandb -q
 
-# Install PyTorch 2.5.1 (works with YOLOv8 weights, no UnpicklingError)
-!pip install torch==2.5.1 torchvision==0.20.1 torchaudio==2.5.1 --index-url https://download.pytorch.org/whl/cu121
-
-# Install stable YOLOv8
 !pip install ultralytics==8.0.120
 
 import torch
-
-print("CUDA available:", torch.cuda.is_available())
-if torch.cuda.is_available():
-    print("GPU name:", torch.cuda.get_device_name(0))
-
 import zipfile, os
 
 
